@@ -18,24 +18,26 @@ public void setup()
 {
 	size(800,800);
 	background(0);
-	//smooth();
-	sierpinski(0,height/2+(800*Math.sqrt(3)/2/2),800);
+	
 }
 public void draw()
 {
-	
+
+	sierpinski(width/2,height/2,800,800);
 }
 public void mouseDragged()//optional
 {
 
 }
-public void sierpinski(double x, double y, double len) 
+public void sierpinski(double a, double b, double len, double minLen) 
 {
-	if(len>10)
+	double x=a-(len/2);
+	double y=b+(len*Math.sqrt(3)/6);
+	if(len>minLen)
 	{
-		sierpinski(x,y,len/2);
-		sierpinski(x+len/2,y,len/2);
-		sierpinski(x+len/4,y-(len/2*Math.sqrt(3)/2),len/2);
+		sierpinski(x,y,len/2,minLen);
+		sierpinski(x+len/2,y,len/2,minLen);
+		sierpinski(x+len/4,y-(len/2*Math.sqrt(3)/2),len/2,minLen);
 	}
 	else
 	{
