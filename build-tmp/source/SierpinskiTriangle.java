@@ -31,7 +31,7 @@ public void mouseDragged()//optional
 }
 public void sierpinski(double x, double y, double len) 
 {
-	if(len>100)
+	if(len>10)
 	{
 		sierpinski(x,y,len/2);
 		sierpinski(x+len/2,y,len/2);
