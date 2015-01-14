@@ -58,10 +58,6 @@ public void draw()
 	if(zoomOut==true) { triLen-=5; }
 	if(triLen<triMinLen) { triLen=triMinLen; }
 }	
-public void mouseDragged()//optional
-{
-
-}
 public void keyPressed()
 {
 	if(key=='w' || key=='W') { moreTriangles=true; }
@@ -79,6 +75,8 @@ public void keyPressed()
 		rotLeftAcc=false; rotRightAcc=false;
 		radAccLeft=0;     radAccRight=0;
 		radRight=0;       radLeft=0;
+		triMinLen=(width+height)/2/8;
+		triLen=(width+height)/2;
 	}
 	if(key==' ') 
 	{
