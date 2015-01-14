@@ -33,7 +33,6 @@ public void draw()
 		rotate((float)radLeft);
 	}
 	translate((float)(-width/2), (float)(-(height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2))));
-	fill(255,102,102);	//work on stages of color shifting in relation to rotation
 	sierpinski(width/2,height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2),triLen,triMinLen);
 	if(moreTriangles==true) { triMinLen/=1.115; }
 	if(lessTriangles==true) { triMinLen*=1.115; }
@@ -60,16 +59,24 @@ public void keyPressed()
 	}
 	if(key=='r' || key=='R') 
 	{
-		rotLeft=false;
-		rotRight=false;
+		rotLeft=false;    rotRight=false;
+		rotLeftAcc=false; rotRightAcc=false;
+		radAccLeft=0;     radAccRight=0;
+		radRight=0;       radLeft=0;
 	}
 	if(key==' ') 
 	{
-		rotLeftAcc=false;
-		rotRightAcc=false;
-		radAccLeft=0;
-		radAccRight=0;
+		rotLeftAcc=false; rotRightAcc=false;
+		radAccLeft=0;     radAccRight=0;
 	}
+	/*
+	println("rotLeft: "+rotLeft);
+	println("rotRight: "+rotRight);
+	println("rotLeftAcc: "+rotLeftAcc);
+	println("rotRightAcc: "+rotRightAcc);
+	println("radAccLeft: "+radAccLeft);
+	println("radAccRight: "+radAccRight);
+	*/
 }
 public void keyReleased()
 {
@@ -98,6 +105,7 @@ public void sierpinski(double a, double b, double len, double minLen)
 	{
 		double x=a-(len/2);
 		double y=b+(len*Math.sqrt(3)/6);
+		fill((float)(Math.random()*256),(float)(Math.random()*256),(float)(Math.random()*256));	//work on stages of color shifting in relation to rotation
 		triangle((float)(x), (float)(y), (float)(x+len), (float)(y), (float)(x+len/2), (float)(y-(len*Math.sqrt(3)/2)));
 	}
 }
