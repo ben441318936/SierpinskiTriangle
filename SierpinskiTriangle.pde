@@ -2,9 +2,9 @@ public double triMinLen, triLen;
 public boolean zoomIn=false, zoomOut=false;
 public boolean moreTriangles=false, lessTriangles=false;
 public boolean rotLeft=false, rotRight=false;
-public float radLeft=0, radRight=0;
+public double radLeft=0, radRight=0;
 public boolean rotLeftAcc=false, rotRightAcc=false;
-public float radAccLeft=0, radAccRight=0;
+public double radAccLeft=0, radAccRight=0;
 public void setup()
 {
 	size(800,800);
@@ -25,12 +25,12 @@ public void draw()
 	if(rotRight==true) 
 	{ 
 		radRight+=(radAccRight/1000);
-		rotate(radRight);
+		rotate((float)radRight);
 	}
 	if(rotLeft==true)  
 	{ 
 		radLeft+=(radAccLeft/1000);
-		rotate(radLeft);
+		rotate((float)radLeft);
 	}
 	translate((float)-width/2, (float)(-(height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2))));
 	fill(255,102,102);	//work on stages of color shifting in relation to rotation
