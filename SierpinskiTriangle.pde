@@ -21,7 +21,7 @@ public void draw()
 	background(0);
 	if(rotRightAcc==true) {radAccRight++;}
 	if(rotLeftAcc==true)  {radAccLeft--; }
-	translate((float)width/2,(float)(height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2)));
+	translate((float)(width/2),(float)(height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2)));
 	if(rotRight==true) 
 	{ 
 		radRight+=(radAccRight/1000);
@@ -32,7 +32,7 @@ public void draw()
 		radLeft+=(radAccLeft/1000);
 		rotate((float)radLeft);
 	}
-	translate((float)-width/2, (float)(-(height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2))));
+	translate((float)(-width/2), (float)(-(height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2))));
 	fill(255,102,102);	//work on stages of color shifting in relation to rotation
 	sierpinski(width/2,height/2+(triLen*Math.sqrt(3)/3-triLen*Math.sqrt(3)/2/2),triLen,triMinLen);
 	if(moreTriangles==true) { triMinLen/=1.115; }
